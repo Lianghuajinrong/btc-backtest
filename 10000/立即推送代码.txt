@@ -1,0 +1,32 @@
+========================================
+推送代码到GitHub - 手动执行步骤
+========================================
+
+请在项目文件夹（C:\Users\范子阳\Desktop\10000）打开PowerShell或CMD，按顺序执行以下命令：
+
+1. 初始化Git（如果还没初始化）：
+   git init
+
+2. 添加所有文件：
+   git add .
+
+3. 提交代码：
+   git commit -m "Initial commit: BTC双均线回测系统"
+
+4. 设置主分支：
+   git branch -M main
+
+5. 添加远程仓库：
+   git remote add origin https://github.com/Lianghuajinrong/btc-backtest.git
+
+6. 推送到GitHub：
+   git push -u origin main
+
+注意：
+- 如果提示需要认证，请使用GitHub Personal Access Token作为密码
+- 生成Token：https://github.com/settings/tokens
+- Token权限选择：repo（全部仓库权限）
+
+========================================
+推送成功后，告诉我，我会继续帮你部署！
+========================================
