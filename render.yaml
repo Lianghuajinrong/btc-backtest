@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: btc-backtest-api
+    env: python
+    rootDir: 10000
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHON_VERSION
+        value: 3.11.0

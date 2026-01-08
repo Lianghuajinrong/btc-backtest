@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新Procfile - 详细步骤</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #24292e;
+            border-bottom: 3px solid #0366d6;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f6f8fa;
+            border-left: 4px solid #0366d6;
+            border-radius: 5px;
+        }
+        .step-number {
+            display: inline-block;
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .code-block {
+            background: #24292e;
+            color: #f6f8fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .button {
+            display: inline-block;
+            background: #0366d6;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #0256c2;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 更新Procfile - 详细步骤指南</h1>
+        
+        <div class="warning">
+            <strong>⚠️ 重要：</strong>请按照以下步骤操作，确保Railway服务器能够正常启动。
+        </div>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>打开GitHub仓库</strong>
+            <p>点击下面的按钮打开你的仓库：</p>
+            <a href="https://github.com/Lianghuajinrong/btc-backtest" target="_blank" class="button">打开GitHub仓库</a>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>找到Procfile文件</strong>
+            <p>在仓库文件列表中，找到并点击 <span class="highlight">Procfile</span> 文件</p>
+            <p>（它应该在文件列表的顶部附近）</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>编辑文件</strong>
+            <p>点击文件右上角的 <span class="highlight">✏️ Edit</span>（编辑）按钮</p>
+            <p>（在文件内容的右上角，有一个铅笔图标）</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>替换文件内容</strong>
+            <p>删除文件中的所有内容，然后复制粘贴以下代码：</p>
+            <div class="code-block">web: uvicorn backend:app --host 0.0.0.0 --port $PORT</div>
+            <button onclick="copyCode()" class="button">📋 复制代码</button>
+        </div>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <strong>提交更改</strong>
+            <p>滚动到页面底部，在提交信息框中输入：</p>
+            <div class="code-block">Fix Procfile for Railway deployment</div>
+            <p>然后点击绿色的 <span class="highlight">"Commit changes"</span> 按钮</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">6</span>
+            <strong>等待Railway自动部署</strong>
+            <p>Railway会自动检测到GitHub的更新，并在2-3分钟内自动重新部署</p>
+            <p>你可以在Railway项目页面查看部署进度</p>
+            <a href="https://railway.app" target="_blank" class="button">打开Railway</a>
+        </div>
+
+        <div class="success">
+            <strong>✅ 完成！</strong>
+            <p>更新完成后，Railway服务器应该会重新上线。</p>
+            <p>如果还有问题，请把Railway的部署日志发给我。</p>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #e7f3ff; border-radius: 5px;">
+            <h3>💡 提示</h3>
+            <ul>
+                <li>如果找不到Edit按钮，确保你已经登录GitHub</li>
+                <li>如果Railway没有自动重新部署，可以在Railway项目页面手动点击"Redeploy"</li>
+                <li>部署完成后，记得获取Railway的URL发给我，我会继续帮你更新前端代码</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = 'web: uvicorn backend:app --host 0.0.0.0 --port $PORT';
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ 代码已复制到剪贴板！现在可以粘贴到GitHub了。');
+            }).catch(() => {
+                // 如果clipboard API不可用，使用传统方法
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ 代码已复制到剪贴板！现在可以粘贴到GitHub了。');
+            });
+        }
+    </script>
+</body>
+</html>
