@@ -1,0 +1,36 @@
+需要上传到GitHub的文件列表：
+========================================
+
+请确保上传以下所有文件：
+
+必需文件：
+- backend.py
+- btc_data_local.py
+- index.html
+- requirements.txt
+- README.md
+
+部署配置文件：
+- vercel.json
+- railway.json
+- render.yaml
+- Procfile
+- runtime.txt
+- .gitignore
+
+部署文档：
+- DEPLOY.md
+- README_DEPLOY.md
+- 部署步骤.md
+- 快速部署指南.md
+
+其他文件：
+- git_push.ps1
+- deploy.bat
+- deploy.sh
+- 推送代码.bat
+- 立即推送代码.txt
+
+========================================
+注意：不要上传 __pycache__ 文件夹
+========================================
